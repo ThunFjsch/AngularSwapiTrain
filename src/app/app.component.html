@@ -1,5 +1,10 @@
 <h1>Star Wars Films</h1>
 
-<div class="films" >
-  <app-film-card *ngFor="let film of films" [film]="film"></app-film-card>
+<div class="films">
+  <div *ngIf="!films">loading...</div>
+  <app-film-card
+    *ngFor="let film of films"
+    [film]="film"
+    (moreClick)="onMoreClick(film)"
+  ></app-film-card>
 </div>

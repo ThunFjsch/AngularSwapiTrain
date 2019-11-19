@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { FilmService } from "./film.service";
 import { Film } from "./film.model";
+import { FilmService } from "./film.service";
 
 @Component({
   selector: "app-root",
@@ -16,5 +16,9 @@ export class AppComponent implements OnInit {
     this.filmService.getFilms().subscribe(films => {
       this.films = films;
     });
+  }
+
+  onMoreClick(film: Film) {
+    console.log(film);
   }
 }
