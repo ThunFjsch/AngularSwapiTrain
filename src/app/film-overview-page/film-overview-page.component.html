@@ -1,0 +1,10 @@
+<div class="films">
+  <div *ngIf="!films">
+    <mat-spinner></mat-spinner>
+  </div>
+  <app-film-card
+    *ngFor="let film of films"
+    [film]="film"
+    (moreClick)="onMoreClick(film)"
+  ></app-film-card>
+</div>

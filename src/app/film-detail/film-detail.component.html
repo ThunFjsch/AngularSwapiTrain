@@ -1,0 +1,84 @@
+<div *ngIf="!swapiFilmResult">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="swapiFilmResult" class="detail-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        {{ swapiFilmResult.title }}
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-title-group>
+    <mat-card-subtitle>
+      <h2>
+        {{ swapiFilmResult.director }}
+        |
+        {{ swapiFilmResult.producer }}
+      </h2>
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+      <h2>{{ swapiFilmResult.release_date }}</h2>
+    </mat-card-subtitle>
+  </mat-card-title-group>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <mat-card-title>Opening Text</mat-card-title>
+    <p>
+      {{ swapiFilmResult.opening_crawl }}
+    </p>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+  <br />
+
+  <mat-card-actions>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Movie Species</mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ swapiFilmResult.species }}
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Movie Starships</mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ swapiFilmResult.starships }}
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Movie Vehicles</mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ swapiFilmResult.vehicles }}
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Movie Characters</mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ swapiFilmResult.characters }}
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Movie Planets</mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ swapiFilmResult.planets }}
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-actions>
+  <br />
+  <mat-divider></mat-divider>
+  <br />
+  <mat-card-footer>
+    <a mat-stroked-button color="link" routerLink="/movie">
+      To the other movies
+    </a>
+  </mat-card-footer>
+</div>

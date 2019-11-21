@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.films {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-spinner {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+app-film-card {
+  flex-basis: 350px;
+}

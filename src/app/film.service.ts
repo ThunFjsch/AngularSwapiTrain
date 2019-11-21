@@ -16,9 +16,14 @@ export class FilmService {
     );
   }
 
+  getFilm(id: number): Observable<SwapiFilmResult> {
+    return this.http.get<SwapiFilmResult>(`https://swapi.co/api/films/${id}/`);
+  }
+
   private makeFilmTransform(swapiFilmResult: SwapiFilmResult[]): Film[] {
     return swapiFilmResult.map(filmResult => {
       const film: Film = {
+        id: this.extractFilmId(filmResult.url),
         title: filmResult.title,
         releaseDate: filmResult.release_date,
         director: filmResult.director,
@@ -27,5 +32,10 @@ export class FilmService {
 
       return film;
     });
+  }
+
+  private extractFilmId(filmUrl: string): number {
+    let id = filmUrl.slice(27, -1);
+    return Number(id);
   }
 }
